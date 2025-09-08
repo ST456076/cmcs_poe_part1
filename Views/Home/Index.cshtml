@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: rosybrown;
+
+    }
+
+    content_container {
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end; /* push form to right */
+        align-items: center; /* center vertically */
+        padding-right: 50px; /* space from right edge */
+        position: relative;
+    }
+
+    /* Form box */
+    .form-box {
+        background: rgba(255, 255, 255, 0.9); /* transparent white */
+        padding: 50px;
+        border-radius: 8px;
+        width: 350px;
+        box-shadow: 0 4px 4px rgba(0,0,0,5);
+        z-index: 1;
+    }
+
+
+
+    h1 {
+        color: orchid;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    .button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background-color: blue;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        .button:hover {
+            background-color: darkblue;
+        }
+
+    p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    a {
+        color: #4a90e2;
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="content_container" />
+<img src="~/image1.jpg" alt="back image" style="width: 80%; height:auto; border: 10px solid;" class="form-box">
+<div class="form-box" />
+
+
+
+<h1>Login or create a new account</h1>
+
+<form method="post" action="/Home/Dashboard">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+    </div>
+    <div>
+        <select>
+            <option>Please provide a rola</option>
+            <option>Lecturer</option>
+            <option>Program codinator </option>
+            <option>Program manager</option>
+        </select>
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<p>
+    Don’t have an account?
+    <a href="@Url.Action("Register", "Home")">Register</a>
+</p>
+        </>
+    </>
+</>
+
+
