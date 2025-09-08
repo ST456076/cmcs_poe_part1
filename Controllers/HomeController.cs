@@ -22,6 +22,24 @@ namespace cmcs_poe_part1.Controllers
         {
             return View();
         }
+         
+        //action method for register page
+        public IActionResult register()
+        {
+            return View();
+        }
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+        public IActionResult Claims()
+        {
+            return View();
+        }
+        public IActionResult ClaimReport()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

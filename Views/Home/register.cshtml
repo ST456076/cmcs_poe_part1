@@ -1,0 +1,116 @@
+﻿<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #87CEEB;
+        height: 100vh;
+    }
+
+    .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    /* Form box */
+    .form-box {
+        background: #F7F7F7; /* transparent white */
+        padding: 100px;
+        border-radius: 8px;
+        width: 450px;
+        box-shadow: 0 4px 4px rgba(0,0,0,5);
+        z-index: 1;
+    }
+
+
+
+    h1 {
+        color: orchid;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background-color: blue;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+    p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    a {
+        color: #4a90e2;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container" />
+<div class="form-box" />
+
+
+<form method="post" action="/Home/Index ">
+    <p>register</p>
+    <div>
+        <!--lable and input the field for name-->
+        <label for="name">Name:</label>
+        <input type="name" value=" " />
+
+        <select>
+            <option>Select a role</option>
+            <option>Lecture</option>
+            <option>Program coordinator</option>
+            <option>Program manager </option>
+        </select>
+    </div>
+
+    <div>
+        <!--lable and input the field for email-->
+        <label for="email">Email:</label>
+        <input type="email" value=" ">
+    </div>
+
+    <div>
+        <!--lable and input the field for password-->
+        <label for="password">Password:</label>
+        <input type="password" value="" />
+    </div>
+
+    <button type="submit">register </button>
+
+
+</form>
+<p>
+    alredy have a acccount
+    <a href=@Url.Action("index", "Home")>log in</a>
+</p>
+
+
