@@ -1,1 +1,154 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightgray;
+    }
+
+    /* General button style */
+    .btn {
+        padding: 5px 10px;
+        margin: 20px;
+        border-radius: 2px;
+        border: none;
+        background-color: #87CEEB;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn:hover {
+            background-color: #F5F5DC;
+        }
+
+    /* Dashboard container */
+    .dashboard {
+        border-style: double;
+        border-color: pink;
+        padding: 4px;
+        margin: 4px;
+        border-radius: 2px;
+        background-color: lightblue;
+        text-align: center;
+    }
+
+        .dashboard h1 {
+            color: mediumpurple;
+            margin-bottom: 5px;
+        }
+
+    h4, p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 10px 0;
+        color: #333;
+    }
+    /* Add New Claim button */
+    .btn-add-claim {
+        display: inline-block;
+        padding: 25px 25px;
+        background-color: #4a90e2;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 10px;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+        .btn-add-claim:hover {
+            background-color: #357ab7;
+        }
+
+    .claims-container {
+        display: flex;
+        gap: 120px;
+        flex-wrap: nowrap;
+    }
+
+    .claim-card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 100px;
+        width: 300px;
+        box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+        background-color: lightpink;
+    }
+
+</style>
+
+
+
+
+
+<div class="dashboard">
+
+    <h1>Welcome to XolozyClaims</h1>
+    <!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index","Home")">Home</a>
+        <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
+        <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
+        <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
+        <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
+    </div>
+</div>
+<h4 style="text-align:center">
+    Welcome to Xolozy Claims! We're glad to welcome you here.
+    This tool is intended to make submitting, managing, and tracking monthly claims as
+    easy and efficient as possible.
+    XolozyClaims makes it easy to submit a new claim,
+    review your claim history,
+    and check the status of existing claims.
+    Our goal is to save you time, reduce paperwork,
+    and handle your claims efficiently and accurately.
+    Enjoy a smooth experience while managing your claims with ease and confidence.
+</h4>
+
+<h4>please be informed that your clais will be first viewd by program coordinator for pre-approval and then i will be formally approved/rejected by your program manager </h4>
+
+
+<div class="claims-container">
+    <div class="claim-card">
+        <h3>lecturer submit a New Claim</h3>
+
+        <p>please fill in all the requirement  correctly and according to the terms and conditions ick "ADD NEW CLAIM" to submit your first claim</p>
+        <p>You will be able to track and summaries once you have more claims</p>
+        <p>
+
+            <a class="btn-add-claim" href="@Url.Action("Claims", "Home")">Add new claim</a>
+        </p>
+    </div>
+    <div class="claim-card">
+        <h3>Program Coordinator</h3>
+        <p>
+            Evaluate and validate (pre-approve) submitted claims to ensure accuracy,
+            completeness, and compliance with institutional policies before final approval.
+            This step helps reduce errors and ensures that only legitimate claims move
+            forward in the process.
+        </p>
+
+        <p>
+
+            <a class="btn-add-claim" href="@Url.Action("ClaimReport", "Home")">Pre-approve</a>
+        </p>
+    </div>
+    <div class="claim-card">
+        <h3>Program Manager</h3>
+
+        <p>
+            Finalize the claims process by carefully reviewing all pre-approved submissions.
+            As a Program Manager, you are responsible for granting the final approval or
+            rejecting claims based on compliance, accuracy, and budget considerations.
+            This step ensures accountability and maintains the integrity of the claims system.
+        </p>
+
+        <p>
+            <a class="btn-add-claim" href="@Url.Action("finalClaimApproval", "Home")">Approve</a>
+    </div>
+</div>

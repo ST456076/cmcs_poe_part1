@@ -6,27 +6,27 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: rosybrown;
-
+        background-color: #87CEEB;
+        height: 100vh;
     }
 
-    content_container {
-        height: 100vh;
+    .container {
+        height 100vh;
         display: flex;
-        justify-content: flex-end; /* push form to right */
-        align-items: center; /* center vertically */
-        padding-right: 50px; /* space from right edge */
+        justify-content: center;
+        align-items: center;
         position: relative;
     }
 
     /* Form box */
     .form-box {
-        background: rgba(255, 255, 255, 0.9); /* transparent white */
-        padding: 50px;
-        border-radius: 8px;
-        width: 350px;
+        background: #F7F7F7; /* transparent white */
+        padding: 100px;
+        border-radius: 15px;
+        width: 450px;
         box-shadow: 0 4px 4px rgba(0,0,0,5);
         z-index: 1;
+        background-color: lightpink
     }
 
 
@@ -51,7 +51,7 @@
         font-size: 16px;
     }
 
-    .button {
+    button {
         width: 100%;
         margin-top: 20px;
         padding: 12px;
@@ -63,7 +63,7 @@
         cursor: pointer;
     }
 
-        .button:hover {
+        button:hover {
             background-color: darkblue;
         }
 
@@ -79,41 +79,41 @@
 </style>
 
 
-<div class="content_container" />
-<img src="~/image1.jpg" alt="back image" style="width: 80%; height:auto; border: 10px solid;" class="form-box">
-<div class="form-box" />
+<div class="container">
+    <div class="form-box">
 
 
+        <h1 style="color: lightseagreen">Login or create a new account</h1>
 
-<h1>Login or create a new account</h1>
+        <form method="post" action="/Home/Dashboard">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" req />
+            </div>
 
-<form method="post" action="/Home/Dashboard">
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <div>
+                <select>
+                    <option>Please provide a role</option>
+                    <option>Lecturer</option>
+                    <option>Program codinator </option>
+                    <option>Program manager</option>
+                </select>
+
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <p>
+            Don’t have an account?
+            <a href="@Url.Action("Register", "Home")">Register</a>
+        </p>
     </div>
+</div>
 
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
-    </div>
-    <div>
-        <select>
-            <option>Please provide a rola</option>
-            <option>Lecturer</option>
-            <option>Program codinator </option>
-            <option>Program manager</option>
-        </select>
-    </div>
-    <button type="submit">Login</button>
-</form>
 
-<p>
-    Don’t have an account?
-    <a href="@Url.Action("Register", "Home")">Register</a>
-</p>
-        </>
-    </>
-</>
 
 

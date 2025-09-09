@@ -1,0 +1,165 @@
+﻿<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: lightpink;
+        height: 100vh;
+    }
+
+    .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    /* Dashboard container */
+    .dashboard {
+        border-style: double;
+        border-color: pink;
+        padding: 4px;
+        margin: 4px;
+        border-radius: 2px;
+        background-color: lightblue;
+        text-align: center;
+    }
+
+        .dashboard h1 {
+            color: mediumpurple;
+            margin-bottom: 5px;
+        }
+
+    /* Form box */
+    .form-box {
+        background: #F7F7F7; /* transparent white */
+        padding: 20px;
+        border-radius: 2px;
+        width: 450px;
+        box-shadow: 4px 4px 4px rgba(0,0,0,5);
+        z-index: 1;
+    }
+
+
+
+    h1 {
+        color: orchid;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background-color: blue;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+    p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    a {
+        color: #4a90e2;
+        text-decoration: none;
+    }
+    /* General button style */
+    .btn {
+        padding: 5px 10px;
+        margin: 20px;
+        border-radius: 2px;
+        border: none;
+        background-color: #87CEEB;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn:hover {
+            background-color: #F5F5DC;
+        }
+</style>
+<div class="dashboard">
+    <h1>Welcome to XolozyClaims</h1>
+    <!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <h1> XolozyClaims</h1>
+
+        <a class="btn" href="@Url.Action("Index","Home")">Home</a>
+        <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
+        <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
+        <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
+        <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
+    </div>
+</div>
+
+<p> Before submitting a new claim, please make sure that all details you provide are accurate and complete.</p>
+<p> Enter your full name, faculty, and role correctly, and ensure that the date and claim amount are valid.</p>
+<p> Incomplete or incorrect claims may delay processing.</p>
+<p>Please remember that all claims will first be reviewed by your Program Coordinator for pre-approval, after which they will be formally approved or rejected by your Program Manager.</p>
+<p> Providing accurate information will help your claim move smoothly through the approval process.</p>
+
+<div class="container" />
+<div class="form-box" />
+
+<form method="post" action="/Home/dashbord ">
+    <div>
+        <!--lable and input the field for name-->
+        <label for="lactureName">Name and Surname:</label>
+        <input type="Name and Surname" value=" " />
+
+        <!--lable and input the field for name-->
+        <label for="lacturefaculty">faculty:</label>
+        <input type="faculty" value=" " />
+
+
+        <select>
+            <option>Select a role</option>
+            <option>Lecture </option>
+            <option>project cordinator</option>
+            <option>academic menanger</option>
+        </select>
+    </div>
+
+    <div>
+        <!--lable and input the field for email-->
+        <label for="claimDate">Date:</label>
+        <input type="Date" value=" ">
+    </div>
+
+    <div>
+        <!--lable and input the field for password-->
+        <label for="ClaimAmount">Amount:</label>
+        <input type="Amount" value="" />
+    </div>
+    <p>
+        <a class="btn-add-claim" href="@Url.Action("trackclaims", "Home")">Submit</a>
+    </p>
+
+
+</form>
