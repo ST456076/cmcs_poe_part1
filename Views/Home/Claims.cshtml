@@ -2,17 +2,11 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: lightpink;
-        height: 100vh;
+        background-color: lightsteelblue;
+       
     }
 
-    .container {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
+ 
     /* Dashboard container */
     .dashboard {
         border-style: double;
@@ -30,13 +24,28 @@
         }
 
     /* Form box */
+    /* Container centers the form, but doesn't stretch too much */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 0; 
+        background-color: lightsteelblue;
+    }
+
+    /* Form box */
     .form-box {
-        background: #F7F7F7; /* transparent white */
+        background-color:  lightpink;
         padding: 20px;
-        border-radius: 2px;
+        border-radius: 8px;
         width: 450px;
-        box-shadow: 4px 4px 4px rgba(0,0,0,5);
-        z-index: 1;
+        box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Reduce margins on headings and paragraphs above form */
+    .dashboard, .dashboard h1, p {
+        margin-top: 0;
+        margin-bottom: 10px; 
     }
 
 
@@ -113,6 +122,7 @@
         <a class="btn" href="@Url.Action("Index","Home")">Home</a>
         <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
         <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
+        <a class="btn" href="@Url.Action("trackclaims","Home")">Track Claims</a>
         <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
         <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
     </div>
@@ -124,8 +134,9 @@
 <p>Please remember that all claims will first be reviewed by your Program Coordinator for pre-approval, after which they will be formally approved or rejected by your Program Manager.</p>
 <p> Providing accurate information will help your claim move smoothly through the approval process.</p>
 
-<div class="container" />
-<div class="form-box" />
+
+<div class="container">
+    <div class="form-box">
 
 <form method="post" action="/Home/dashbord ">
     <div>
@@ -151,6 +162,11 @@
         <label for="claimDate">Date:</label>
         <input type="Date" value=" ">
     </div>
+            <div>
+                <label for="documents">Upload Supporting Documents:</label>
+                <input type="file" name="documents" multiple /> 
+            </div>
+
 
     <div>
         <!--lable and input the field for password-->
@@ -162,4 +178,9 @@
     </p>
 
 
+
 </form>
+
+
+	</div>
+</div>

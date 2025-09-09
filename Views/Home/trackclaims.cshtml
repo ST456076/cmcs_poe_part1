@@ -1,8 +1,9 @@
 ﻿<style>
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: lightpink;
+        background-color: lightsteelblue;
     }
 
 
@@ -64,6 +65,10 @@
         .btn:hover {
             background-color: #F5F5DC;
         }
+
+    .view {
+        background-color: #4CAF50;
+    }
 </style>
 <div class="dashboard">
     <h1>Welcome to XolozyClaims</h1>
@@ -74,6 +79,7 @@
         <a class="btn" href="@Url.Action("Index","Home")">Home</a>
         <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
         <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
+        <a class="btn" href="@Url.Action("trackclaims","Home")">Track Claims</a>
         <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
         <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
     </div>
@@ -97,12 +103,12 @@
         <!-- Pending Claims (3) -->
         <tr>
             <td>001</td>
-            <td>U1001</td>
+            <td>1001</td>
             <td>Thobeka Sithole</td>
             <td>Pending</td>
             <td>2025-09-01</td>
             <td>R 12,000.00</td>
-            <td><button class="btn btn-warning btn-sm">View/Edit</button></td>
+            <td><button class="view view-primary view-sm">View/Edit</button></td>
         </tr>
         <tr>
             <td>002</td>
@@ -111,7 +117,7 @@
             <td>Pending</td>
             <td>2025-09-02</td>
             <td>R 8,500.00</td>
-            <td><button class="btn btn-warning btn-sm">View/Edit</button></td>
+            <td><button class="view view-primary view-sm">View/Edit</button></td>
         </tr>
         <tr>
             <td>003</td>
@@ -120,7 +126,7 @@
             <td>Pre-Approved</td>
             <td>2025-09-03</td>
             <td>R 25,000.00</td>
-            <td><button class="btn btn-warning btn-sm">View/Edit</button></td>
+            <td><button class="view view-primary view-sm">View/Edit</button></td>
         </tr>
 
         <!-- Approved Claims (4) -->
@@ -131,7 +137,7 @@
             <td>Approved</td>
             <td>2025-09-04</td>
             <td>R 10,000.00</td>
-            <td><button class="btn btn-primary btn-sm">View</button></td>
+            <td><button class="view view-primary view-sm">View</button></td>
         </tr>
         <tr>
             <td>005</td>
@@ -140,7 +146,7 @@
             <td>Deniad</td>
             <td>2025-09-05</td>
             <td>R 19,500.00</td>
-            <td><button class="btn btn-primary btn-sm">View</button></td>
+            <td><button class="view view-primary view-sm">View</button></td>
         </tr>
 
     </tbody>

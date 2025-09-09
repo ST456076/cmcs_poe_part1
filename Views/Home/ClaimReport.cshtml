@@ -3,8 +3,9 @@
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background-color: lightpink;
+        background-color: lightsteelblue;
     }
+
 
 
     .table {
@@ -73,17 +74,18 @@
 
 </style>
 <div class="dashboard">
-    <h1>Welcome to XolozyClaims</h1>
+    <h1>Xolozy Monthly Claims System</h1>
     <!-- Navigation buttons inside header -->
     <div class="nav-buttons">
         <a class="btn" href="@Url.Action("Index","Home")">Home</a>
         <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
         <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
+        <a class="btn" href="@Url.Action("trackclaims","Home")">Track Claims</a>
         <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
         <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
     </div>
 </div>
-<h1>Claim Reports - Final Approval</h1>
+<h1>Claim Reports - Pre Approval</h1>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -100,59 +102,61 @@
         <!-- Approved Claims -->
         <tr>
             <td>004</td>
-            <td>U1004</td>
+            <td>1004</td>
             <td>Jane Smith</td>
-            <td>Approved</td>
+            <td>Pre-Approved</td>
             <td>2025-09-04</td>
             <td>R 10,000.00</td>
             <td><button class="view view-primary view-sm">View</button></td>
         </tr>
         <tr>
             <td>005</td>
-            <td>U1005</td>
+            <td>1005</td>
             <td>Michael Lee</td>
-            <td>Approved</td>
+            <td>Pre-Approved</td>
             <td>2025-09-05</td>
             <td>R 17,500.00</td>
-            <td><button class="btn btn-primary btn-sm">View</button></td>
+            <td><button class="view view-primary view-sm">View</button></td>
         </tr>
+        <!--panding -->
         <tr>
             <td>006</td>
-            <td>U1006</td>
+            <td>1006</td>
             <td>Sarah Wilson</td>
-            <td>Approved</td>
+            <td>Panding</td>
             <td>2025-09-06</td>
             <td>R 9,500.00</td>
-            <td><button class="btn btn-primary btn-sm">View</button></td>
+            <td><button class= "view view-primary view-sm">View</button></td>
         </tr>
         <tr>
             <td>007</td>
-            <td>U1007</td>
+            <td>1007</td>
             <td>James Miller</td>
-            <td>Approved</td>
+            <td>pending</td>
             <td>2025-09-07</td>
             <td>R 32,000.00</td>
-            <td><button class="btn btn-primary btn-sm">View</button></td>
+            <td><button class="view view-primary view-sm">View</button></td>
         </tr>
+
 
         <!-- Denied Claims -->
         <tr>
             <td>008</td>
-            <td>U1008</td>
-            <td>Emily Davis</td>
+            <td>1008</td>
+            <td>Ntokozo Mashiyane</td>
             <td>Denied</td>
             <td>2025-09-07</td>
             <td>R 15,000.00</td>
-            <td><button class="btn btn-danger btn-sm">View Reason</button></td>
+            <td><button class="view view-primary view-sm">View Reason</button></td>
         </tr>
         <tr>
             <td>009</td>
-            <td>U1009</td>
-            <td>Robert Taylor</td>
+            <td>1009</td>
+            <td>travor sithole</td>
             <td>Denied</td>
             <td>2025-09-08</td>
             <td>R 20,500.00</td>
-            <td><button class="btn btn-danger btn-sm">View Reason</button></td>
+            <td><button class="view view-primary view-sm">View Reason</button></td>
         </tr>
     </tbody>
 </table>
