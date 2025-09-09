@@ -43,6 +43,9 @@ namespace cmcs_poe_part1.Controllers
         public IActionResult trackclaims()
         {
             return View();
+        }  public IActionResult finalClaimApproval()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
