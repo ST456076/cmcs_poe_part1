@@ -1,90 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: lightgray;
-    }
-
-    /* General button style */
-    .btn {
-        padding: 5px 10px;
-        margin: 20px;
-        border-radius: 2px;
-        border: none;
-        background-color: #87CEEB;
-        color: white;
-        cursor: pointer;
-        font-size: 20px;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-        .btn:hover {
-            background-color: #F5F5DC;
-        }
-
-    /* Dashboard container */
-    .dashboard {
-        border-style: double;
-        border-color: pink;
-        padding: 4px;
-        margin: 4px;
-        border-radius: 2px;
-        background-color: lightblue;
-        text-align: center;
-    }
-
-        .dashboard h1 {
-            color: mediumpurple;
-            margin-bottom: 5px;
-        }
-
-    h4, p {
-        font-size: 16px;
-        line-height: 1.6;
-        margin: 10px 0;
-        color: #333;
-    }
-    /* Add New Claim button */
-    .btn-add-claim {
-        display: inline-block;
-        padding: 25px 25px;
-        background-color: #4a90e2;
-        color: white;
-        font-size: 16px;
-        text-decoration: none;
-        border-radius: 10px;
-        margin: 5px;
-        cursor: pointer;
-    }
-
-        .btn-add-claim:hover {
-            background-color: #357ab7;
-        }
-
-    .claims-container {
-        display: flex;
-        gap: 120px;
-        flex-wrap: nowrap;
-    }
-
-    .claim-card {
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 100px;
-        width: 300px;
-        box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-        background-color: lightpink;
-    }
-
-</style>
-
-
-
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+  
+     
 
 <div class="dashboard">
 
