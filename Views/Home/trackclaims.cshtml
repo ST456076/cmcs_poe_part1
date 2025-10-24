@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<cmcs_poe_part1.Models.Claim>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -16,69 +21,40 @@
         <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
     </div>
 </div>
-<h1>Claim Reports</h1>
+
+
+<h1>Track Claim</h1>
+
+
+
 <h4 style="text-align:center">User: Thobeka Sithole | ID: U1001</h4>
 <p> your new claim was successfully submitted and is currently under review. You can track the status of your claim below.</p>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NameSurname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Faculty)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoursWorked)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HourlyRate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupportingDocuments)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
+            <th> @Html.DisplayNameFor(model => model.NameSurname) </th>
+            <th> @Html.DisplayNameFor(model => model.Faculty) </th>
+            <th> @Html.DisplayNameFor(model => model.Role) </th>
+            <th> @Html.DisplayNameFor(model => model.Date) </th>
+            <th> @Html.DisplayNameFor(model => model.HoursWorked) </th>
+            <th> @Html.DisplayNameFor(model => model.HourlyRate) </th>
+            <th> @Html.DisplayNameFor(model => model.SupportingDocuments) </th>
+            <th> @Html.DisplayNameFor(model => model.Amount) </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        
-)
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NameSurname)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Faculty)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Role)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HoursWorked)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HourlyRate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SupportingDocuments)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
+                <td>@item.NameSurname</td>
+                <td>@item.Faculty</td>
+                <td>@item.Role</td>
+                <td>@item.Date</td>
+                <td>@item.HoursWorked</td>
+                <td>@item.HourlyRate</td>
+                <td>@item.SupportingDocuments</td>
+                <td>@item.Amount</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

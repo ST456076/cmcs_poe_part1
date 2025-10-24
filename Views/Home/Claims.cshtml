@@ -28,58 +28,51 @@
 
 <form method="post" action="/Home/trackclaims">
     <div>
-        <!--lable and input the field for name-->
-                <label for="NameSurname">Name and Surname:</label>
-                <input for="NameSurname" type="text" value=" " />
+        <!--label and input the field for name-->
+        <label for="NameSurname">Name and Surname:</label>
+        <input id="NameSurname" name="NameSurname" type="text" />
 
-        <!--lable and input the field for name-->
-             <label for="Faculty">faculty:</label>
-                <input for="Faculty"  type="text" value=" " />
+        <!--label and input the field for faculty-->
+        <label for="Faculty">Faculty:</label>
+        <input id="Faculty" name="Faculty" type="text" />
 
-
-        <select for="Role">
+        <label for="Role">Role:</label>
+        <select id="Role" name="Role">
             <option>Select a role</option>
-            <option>Lecture </option>
+            <option>Lecture</option>
             <option>project cordinator</option>
             <option>academic menanger</option>
         </select>
     </div>
 
     <div>
-        <!--lable and input the field for email-->
-                 <label for="Date">Date:</label>
-                <input for="Date" type="Date" value=" ">
+        <!--label and input the field for date-->
+        <label for="Date">Date:</label>
+        <input id="Date" name="Date" type="date" />
     </div>
-
-            <div>
-                <label for="HoursWorked">Hours Worked:</label>
-                <input for="HoursWorked" type="number" id="hoursWorked" name="hoursWorked" min="0" step="1" required />
-               </div>
-
-
-                <div>
-
-                <label for="HourlyRate">Hourly Rate:</label>
-                <input for="HourlyRate" type="number" id="hourlyRate" name="hourlyRate" min="0" step="1" required />
-			</div>
-
-		
-            <div>
-                <label for="SupportingDocuments">Upload Supporting Documents:</label>
-                <input for="SupportingDocuments" type="file" name="documents" multiple />
-            </div>
 
     <div>
-        <!--lable and input the field for password-->
-        <label for="Amount">Amount:</label>
-                <input for="Amount" type="number" value="" />
+        <label for="HoursWorked">Hours Worked:</label>
+        <input id="HoursWorked" name="HoursWorked" type="number" min="0" step="1" required />
     </div>
-            <button type="submit">Login</button>
 
+    <div>
+        <label for="HourlyRate">Hourly Rate:</label>
+        <input id="HourlyRate" name="HourlyRate" type="number" min="0" step="1" required />
+    </div>
 
+    <div>
+        <label for="SupportingDocuments">Upload Supporting Documents:</label>
+        <input id="SupportingDocuments" name="documents" type="file" multiple />
+    </div>
 
+    <div>
+        <!--label and input the field for amount-->
+        <label for="Amount">Amount:</label>
+        <input id="Amount" name="Amount" type="number" />
+    </div>
+    <button type="submit">Login</button>
 </form>
 
-
-	</div>
+    </div>
 </div>

@@ -46,12 +46,29 @@ namespace cmcs_poe_part1.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult trackclaims()
         {
             var claims = _context.Claims.ToList();
             return View(claims);
-           
-        }  public IActionResult finalClaimApproval()
+        }
+        [HttpPost]
+        public IActionResult trackclaims(Claim claim, IFormFile documents)
+        {
+            if (documents != null && documents.Length > 0)
+            {
+                claim.SupportingDocuments = documents.FileName;
+            }
+            else
+            {
+                claim.SupportingDocuments = "No document uploaded";
+            }
+
+            _context.Claims.Add(claim);
+            _context.SaveChanges();
+            return RedirectToAction("TrackClaims");
+        }
+        public IActionResult finalClaimApproval()
         {
             return View();
         }
