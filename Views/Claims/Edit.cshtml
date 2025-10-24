@@ -2,32 +2,50 @@
 
 <h1>Edit Claim</h1>
 
-<h4>Claim</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="NameSurname" class="control-label"></label>
-                <input asp-for="NameSurname" class="form-control" />
-                <span asp-validation-for="NameSurname" class="text-danger"></span>
-            </div>
-            <!-- Add other fields here -->
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" for="Id" />
+    <div class="form-group">
+        <label for="NameSurname" class="control-label"></label>
+        <input for="NameSurname" class="form-control" />
+        <span validation-for="NameSurname" class="text-danger"></span>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+    <div class="form-group">
+        <label for="Faculty" class="control-label"></label>
+        <input for="Faculty" class="form-control" />
+        <span validation-for="Faculty" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Role" class="control-label"></label>
+        <input for="Role" class="form-control" />
+        <span validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Date" class="control-label"></label>
+        <input for="Date" class="form-control" />
+        <span validation-for="Date" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="HoursWorked" class="control-label"></label>
+        <input for="HoursWorked" class="form-control" />
+        <span validation-for="HoursWorked" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="HourlyRate" class="control-label"></label>
+        <input for="HourlyRate" class="form-control" />
+        <span validation-for="HourlyRate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="SupportingDocuments" class="control-label"></label>
+        <input for="SupportingDocuments" class="form-control" />
+        <span validation-for="SupportingDocuments" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Amount" class="control-label"></label>
+        <input for="Amount" class="form-control" />
+        <span validation-for="Amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
