@@ -5,7 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-   
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
 <div class="index-image">
     <img src="@Url.Content("~/images/image_2.jpg")" alt="Description" />
@@ -20,15 +25,15 @@
         <form method="post" action="/Home/Dashboard">
             <div>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" req />
+                <input type="email" id="email" name="email" required />
             </div>
 
             <div>
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" />
+                <input type="password" id="password" name="password" required />
             </div>
             <div>
-                <select>
+                <select >
                     <option>Please provide a role</option>
                     <option>Lecturer</option>
                     <option>Program codinator </option>

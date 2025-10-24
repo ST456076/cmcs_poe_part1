@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cmcs_poe_part1.Data;
 
@@ -11,9 +12,11 @@ using cmcs_poe_part1.Data;
 namespace cmcs_poe_part1.Migrations.AppDb
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251024170107_AddDescriptionToClaims")]
+    partial class AddDescriptionToClaims
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,6 +39,9 @@ namespace cmcs_poe_part1.Migrations.AppDb
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("Description")
+                        .HasColumnType("float");
+
                     b.Property<string>("Faculty")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -53,9 +59,6 @@ namespace cmcs_poe_part1.Migrations.AppDb
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
 
                     b.Property<string>("SupportingDocuments")
                         .IsRequired()

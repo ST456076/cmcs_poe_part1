@@ -25,54 +25,67 @@
 
 <div class="container">
     <div class="form-box">
-
-<form method="post" action="/Home/trackclaims">
-    <div>
-        <!--label and input the field for name-->
-        <label for="NameSurname">Name and Surname:</label>
-        <input id="NameSurname" name="NameSurname" type="text" />
-
-        <!--label and input the field for faculty-->
-        <label for="Faculty">Faculty:</label>
-        <input id="Faculty" name="Faculty" type="text" />
-
-        <label for="Role">Role:</label>
-        <select id="Role" name="Role">
-            <option>Select a role</option>
-            <option>Lecture</option>
-            <option>project cordinator</option>
-            <option>academic menanger</option>
-        </select>
-    </div>
-
-    <div>
-        <!--label and input the field for date-->
-        <label for="Date">Date:</label>
-        <input id="Date" name="Date" type="date" />
-    </div>
-
-    <div>
-        <label for="HoursWorked">Hours Worked:</label>
-        <input id="HoursWorked" name="HoursWorked" type="number" min="0" step="1" required />
-    </div>
-
-    <div>
-        <label for="HourlyRate">Hourly Rate:</label>
-        <input id="HourlyRate" name="HourlyRate" type="number" min="0" step="1" required />
-    </div>
-
-    <div>
-        <label for="SupportingDocuments">Upload Supporting Documents:</label>
-        <input id="SupportingDocuments" name="documents" type="file" multiple />
-    </div>
-
-    <div>
-        <!--label and input the field for amount-->
-        <label for="Amount">Amount:</label>
-        <input id="Amount" name="Amount" type="number" />
-    </div>
-    <button type="submit">Submit</button>
-</form>
-
+        <form method="post" action="/Home/trackclaims" enctype="multipart/form-data">
+            <div>
+                <label for="NameSurname">Name and Surname:</label>
+                <input id="NameSurname" name="NameSurname" type="text" required />
+            </div>
+            <div>
+                <label for="Faculty">Faculty:</label>
+                <input id="Faculty" name="Faculty" type="text" required />
+            </div>
+            <div>
+                <label for="Role">Role:</label>
+                <select id="Role" name="Role" required>
+                    <option>Select a role</option>
+                    <option>Lecture</option>
+                    <option>project cordinator</option>
+                    <option>academic menanger</option>
+                </select>
+            </div>
+            <div>
+                <label for="Date">Date:</label>
+                <input id="Date" name="Date" type="date" required />
+            </div>
+            <div>
+                <label for="HoursWorked">Hours Worked:</label>
+                <input id="HoursWorked" name="HoursWorked" type="number" min="0" step="1" required />
+            </div>
+            <div>
+                <label for="HourlyRate">Hourly Rate:</label>
+                <input id="HourlyRate" name="HourlyRate" type="number" min="0" step="1" required />
+            </div>
+            <div>
+                <label for="SupportingDocuments">Upload Supporting Documents:</label>
+                <input id="SupportingDocuments" name="documents" type="file" multiple required accept=".pdf,.docx,.xlsx" onchange="checkFileSize(this)" />
+                <span id="fileSizeError" style="color: red; display: none;">File size exceeds 500MB limit.</span>
+            </div>
+            <div>
+                <label for="Amount">Amount:</label>
+                <input id="Amount" name="Amount" type="number" required />
+            </div>
+            <div>
+                <label for="WouldYouLikeToaddSomething">WouldYouLikeToaddSomething:</label>
+                <input id="WouldYouLikeToaddSomething" name="WouldYouLikeToaddSomething" type="text" />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </div>
+
+<script>
+    function checkFileSize(input) {
+        const fileSizeError = document.getElementById('fileSizeError');
+        const files = input.files;
+        let totalSize = 0;
+        for (let i = 0; i < files.length; i++) {
+            totalSize += files[i].size;
+        }
+        if (totalSize > 500 * 1024 * 1024) {
+            fileSizeError.style.display = 'block';
+            input.value = '';
+        } else {
+            fileSizeError.style.display = 'none';
+        }
+    }
+</script>

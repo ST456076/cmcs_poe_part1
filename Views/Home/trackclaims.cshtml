@@ -44,6 +44,8 @@
             <th> @Html.DisplayNameFor(model => model.HourlyRate) </th>
             <th> @Html.DisplayNameFor(model => model.SupportingDocuments) </th>
             <th> @Html.DisplayNameFor(model => model.Amount) </th>
+            <th> @Html.DisplayNameFor(model => model.WouldYouLikeToaddSomething) </th>
+
             <th></th>
         </tr>
     </thead>
@@ -59,6 +61,7 @@
                 <td>@item.HourlyRate</td>
                 <td>@item.SupportingDocuments</td>
                 <td>@item.Amount</td>
+                <td>@item.WouldYouLikeToaddSomething</td>
 
                 <td>
                     <a asp-controller="Claims" asp-action="Details" asp-route-id="@item.Id">Details</a> |

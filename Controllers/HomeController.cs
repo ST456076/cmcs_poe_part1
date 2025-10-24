@@ -9,9 +9,9 @@ namespace cmcs_poe_part1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly AppDbContext _context;  
+        private readonly AppDbContext _context;
 
-        
+
         public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
@@ -28,7 +28,7 @@ namespace cmcs_poe_part1.Controllers
         {
             return View();
         }
-         
+
         //action method for register page
         public IActionResult register()
         {
@@ -65,7 +65,7 @@ namespace cmcs_poe_part1.Controllers
             }
 
             _context.Claims.Add(claim);
-            _context.SaveChanges();
+           
             return RedirectToAction("TrackClaims");
         }
         public IActionResult finalClaimApproval()

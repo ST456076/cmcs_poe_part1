@@ -132,12 +132,9 @@ namespace cmcs_poe_part1.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var claim = await _context.Claims.FindAsync(id);
-            if (claim != null)
-            {
-                _context.Claims.Remove(claim);
-                await _context.SaveChangesAsync();
-            }
-
+            _context.Claims.Remove(claim);
+            await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Claim deleted successfully!";
             return RedirectToAction(nameof(Index));
         }
 
@@ -147,4 +144,3 @@ namespace cmcs_poe_part1.Controllers
         }
     }
 }
-

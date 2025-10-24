@@ -1,0 +1,44 @@
+﻿@model IEnumerable<cmcs_poe_part1.Models.Claim>
+
+<h1>Pending Claims</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer Name</th>
+            <th>Faculty</th>
+            <th>Role</th>
+            <th>Date</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.NameSurname</td>
+                <td>@claim.Faculty</td>
+                <td>@claim.Role</td>
+                <td>@claim.Date</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.Amount</td>
+                <td>@claim.Status</td>
+                <td>
+                    <form asp-action="Approve" asp-route-id="@claim.Id" method="post">
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="Reject" asp-route-id="@claim.Id" method="post">
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
