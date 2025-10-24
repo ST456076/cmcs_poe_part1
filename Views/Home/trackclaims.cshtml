@@ -29,6 +29,7 @@
 
 <h4 style="text-align:center">User: Thobeka Sithole | ID: U1001</h4>
 <p> your new claim was successfully submitted and is currently under review. You can track the status of your claim below.</p>
+<a asp-action="trackclaims" class="btn btn-primary">Add New Claim</a>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -55,6 +56,7 @@
                 <td>@item.HourlyRate</td>
                 <td>@item.SupportingDocuments</td>
                 <td>@item.Amount</td>
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
