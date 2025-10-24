@@ -7,11 +7,12 @@ namespace cmcs_poe_part1.Data
     public class AppDbcontext: DbContext
     {
 
-        public AppDbcontext(DbContextOptions<AppDbcontext> options) : base(options)
+        public AppDbcontext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
        
         public DbSet<user_login_info> Login_Infos { get; set; }
+        public DbSet<Claim> Claims { get; set; } 
 
         }
     }

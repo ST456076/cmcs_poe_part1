@@ -26,18 +26,18 @@
 <div class="container">
     <div class="form-box">
 
-<form method="post" action="/Home/dashbord ">
+<form method="post" action="/Home/trackclaims">
     <div>
         <!--lable and input the field for name-->
-        <label for="lactureName">Name and Surname:</label>
-        <input type="Name and Surname" value=" " />
+                <label for="NameSurname">Name and Surname:</label>
+                <input for="NameSurname" type="text" value=" " />
 
         <!--lable and input the field for name-->
-        <label for="lacturefaculty">faculty:</label>
-        <input type="faculty" value=" " />
+             <label for="Faculty">faculty:</label>
+                <input for="Faculty"  type="text" value=" " />
 
 
-        <select>
+        <select for="Role">
             <option>Select a role</option>
             <option>Lecture </option>
             <option>project cordinator</option>
@@ -47,36 +47,34 @@
 
     <div>
         <!--lable and input the field for email-->
-        <label for="claimDate">Date:</label>
-        <input type="Date" value=" ">
+                 <label for="Date">Date:</label>
+                <input for="Date" type="Date" value=" ">
     </div>
 
             <div>
-                <label for="hoursWorked">Hours Worked:</label>
-                <input type="number" id="hoursWorked" name="hoursWorked" min="0" step="1" required />
+                <label for="HoursWorked">Hours Worked:</label>
+                <input for="HoursWorked" type="number" id="hoursWorked" name="hoursWorked" min="0" step="1" required />
                </div>
 
 
                 <div>
 
-                <label for="hourlyRate">Hourly Rate:</label>
-                <input type="number" id="hourlyRate" name="hourlyRate" min="0" step="1" required />
+                <label for="HourlyRate">Hourly Rate:</label>
+                <input for="HourlyRate" type="number" id="hourlyRate" name="hourlyRate" min="0" step="1" required />
 			</div>
 
 		
             <div>
-                <label for="documents">Upload Supporting Documents:</label>
-                <input type="file" name="documents" multiple /> 
+                <label for="SupportingDocuments">Upload Supporting Documents:</label>
+                <input for="SupportingDocuments" type="file" name="documents" multiple />
             </div>
 
     <div>
         <!--lable and input the field for password-->
-        <label for="ClaimAmount">Amount:</label>
-        <input type="Amount" value="" />
+        <label for="Amount">Amount:</label>
+                <input for="Amount" type="number" value="" />
     </div>
-    <p>
-        <a class="btn-add-claim" href="@Url.Action("trackclaims", "Home")">Submit</a>
-    </p>
+            <button type="submit">Login</button>
 
 
 

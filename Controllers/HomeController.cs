@@ -1,20 +1,26 @@
 using System.Diagnostics;
 using cmcs_poe_part1.Models;
+using cmcs_poe_part1.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace cmcs_poe_part1.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context;  
 
-        public HomeController(ILogger<HomeController> logger)
+        
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Home page visited.");
             return View();
         }
 
@@ -42,7 +48,9 @@ namespace cmcs_poe_part1.Controllers
         }
         public IActionResult trackclaims()
         {
-            return View();
+            var claims = _context.Claims.ToList();
+            return View(claims);
+           
         }  public IActionResult finalClaimApproval()
         {
             return View();
