@@ -25,7 +25,7 @@
 
 <div class="container">
     <div class="form-box">
-        <form method="post" action="/Home/trackclaims" enctype="multipart/form-data">
+        <form method="post" action="/Home/trackclaims" >
             <div>
                 <label for="NameSurname">Name and Surname:</label>
                 <input id="NameSurname" name="NameSurname" type="text" required />
@@ -67,6 +67,10 @@
             <div>
                 <label for="WouldYouLikeToaddSomething">WouldYouLikeToaddSomething:</label>
                 <input id="WouldYouLikeToaddSomething" name="WouldYouLikeToaddSomething" type="text" />
+            </div>
+            <div>
+                <label for="Status">Status:</label>
+                <input id="Status" name="Status" type="text" />
             </div>
             <button type="submit">Submit</button>
         </form>

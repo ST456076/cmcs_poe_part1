@@ -18,9 +18,9 @@
         public int HourlyRate { get; set; }
         public string SupportingDocuments { get; set; }
         public double Amount { get; set; }
-        public double WouldYouLikeToaddSomething { get; set; }
+        public string WouldYouLikeToaddSomething { get; set; }
         
-        public ClaimStatus Status { get; set; } // Add this property to 
+       public ClaimStatus Status { get; set; } // Add this property to 
     }
 }
 

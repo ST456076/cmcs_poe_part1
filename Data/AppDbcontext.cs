@@ -1,23 +1,17 @@
-﻿using System;
-using cmcs_poe_part1.Controllers;
+﻿using Microsoft.EntityFrameworkCore;
 using cmcs_poe_part1.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace cmcs_poe_part1.Data
 {
-    public class AppDbcontext : DbContext
+    public class AppDbContext : DbContext
     {
-
-        public AppDbcontext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
         {
         }
 
-        public DbSet<login_Infos> Login_Infos { get; set; }
+        // This is your database table
         public DbSet<Claim> Claims { get; set; }
-
-    }
-
-    public class login_Infos
-    {
+        public DbSet<RegisterViewModel> Users { get; set; }
     }
 }

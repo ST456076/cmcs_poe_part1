@@ -9,11 +9,11 @@ using cmcs_poe_part1.Data;
 
 #nullable disable
 
-namespace cmcs_poe_part1.Migrations.AppDb
+namespace cmcs_poe_part1.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251024180952_DropClaimsTable")]
-    partial class DropClaimsTable
+    [Migration("20251029075714_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,40 @@ namespace cmcs_poe_part1.Migrations.AppDb
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("RegisterViewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ConfirmPassword")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
 
             modelBuilder.Entity("cmcs_poe_part1.Models.Claim", b =>
                 {
@@ -61,6 +95,10 @@ namespace cmcs_poe_part1.Migrations.AppDb
                         .HasColumnType("int");
 
                     b.Property<string>("SupportingDocuments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WouldYouLikeToaddSomething")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
