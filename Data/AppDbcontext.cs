@@ -12,6 +12,7 @@ namespace cmcs_poe_part1.Data
 
         // This is your database table
         public DbSet<Claim> Claims { get; set; }
+        public DbSet<LectureClaims> LectureClaims { get; set; }
         public DbSet<RegisterViewModel> Users { get; set; }
     }
 }

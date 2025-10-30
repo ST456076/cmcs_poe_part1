@@ -34,6 +34,27 @@ namespace cmcs_poe_part1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LectureClaims",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NameSurname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Faculty = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    HoursWorked = table.Column<int>(type: "int", nullable: false),
+                    HourlyRate = table.Column<int>(type: "int", nullable: false),
+                    SupportingDocuments = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Amount = table.Column<double>(type: "float", nullable: false),
+                    WouldYouLikeToaddSomething = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LectureClaims", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -56,6 +77,9 @@ namespace cmcs_poe_part1.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Claims");
+
+            migrationBuilder.DropTable(
+                name: "LectureClaims");
 
             migrationBuilder.DropTable(
                 name: "Users");

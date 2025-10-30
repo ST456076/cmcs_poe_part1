@@ -10,22 +10,22 @@ using cmcs_poe_part1.Models;
 
 namespace cmcs_poe_part1.Controllers
 {
-    public class ClaimsController : Controller
+    public class LectureClaimsController : Controller
     {
         private readonly AppDbContext _context;
 
-        public ClaimsController(AppDbContext context)
+        public LectureClaimsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Claims
+        // GET: LectureClaims
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Claims.ToListAsync());
+            return View(await _context.LectureClaims.ToListAsync());
         }
 
-        // GET: Claims/Details/5
+        // GET: LectureClaims/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace cmcs_poe_part1.Controllers
                 return NotFound();
             }
 
-            var claim = await _context.Claims
+            var lectureClaims = await _context.LectureClaims
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (claim == null)
+            if (lectureClaims == null)
             {
                 return NotFound();
             }
 
-            return View(claim);
+            return View(lectureClaims);
         }
 
-        // GET: Claims/Create
+        // GET: LectureClaims/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Claims/Create
+        // POST: LectureClaims/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameSurname,Faculty,Role,Date,HoursWorked,HourlyRate,SupportingDocuments,Amount,WouldYouLikeToaddSomething,Status")] Claim claim)
+        public async Task<IActionResult> Create([Bind("Id,NameSurname,Faculty,Date,HoursWorked,HourlyRate,SupportingDocuments,Amount,WouldYouLikeToaddSomething,Status")] LectureClaims lectureClaims)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(claim);
+                _context.Add(lectureClaims);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(claim);
+            return View(lectureClaims);
         }
 
-        // GET: Claims/Edit/5
+        // GET: LectureClaims/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace cmcs_poe_part1.Controllers
                 return NotFound();
             }
 
-            var claim = await _context.Claims.FindAsync(id);
-            if (claim == null)
+            var lectureClaims = await _context.LectureClaims.FindAsync(id);
+            if (lectureClaims == null)
             {
                 return NotFound();
             }
-            return View(claim);
+            return View(lectureClaims);
         }
 
-        // POST: Claims/Edit/5
+        // POST: LectureClaims/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameSurname,Faculty,Role,Date,HoursWorked,HourlyRate,SupportingDocuments,Amount,WouldYouLikeToaddSomething,Status")] Claim claim)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameSurname,Faculty,Date,HoursWorked,HourlyRate,SupportingDocuments,Amount,WouldYouLikeToaddSomething,Status")] LectureClaims lectureClaims)
         {
-            if (id != claim.Id)
+            if (id != lectureClaims.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace cmcs_poe_part1.Controllers
             {
                 try
                 {
-                    _context.Update(claim);
+                    _context.Update(lectureClaims);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClaimExists(claim.Id))
+                    if (!LectureClaimsExists(lectureClaims.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace cmcs_poe_part1.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(claim);
+            return View(lectureClaims);
         }
 
-        // GET: Claims/Delete/5
+        // GET: LectureClaims/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace cmcs_poe_part1.Controllers
                 return NotFound();
             }
 
-            var claim = await _context.Claims
+            var lectureClaims = await _context.LectureClaims
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (claim == null)
+            if (lectureClaims == null)
             {
                 return NotFound();
             }
 
-            return View(claim);
+            return View(lectureClaims);
         }
 
-        // POST: Claims/Delete/5
+        // POST: LectureClaims/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var claim = await _context.Claims.FindAsync(id);
-            if (claim != null)
+            var lectureClaims = await _context.LectureClaims.FindAsync(id);
+            if (lectureClaims != null)
             {
-                _context.Claims.Remove(claim);
+                _context.LectureClaims.Remove(lectureClaims);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClaimExists(int id)
+        private bool LectureClaimsExists(int id)
         {
-            return _context.Claims.Any(e => e.Id == id);
+            return _context.LectureClaims.Any(e => e.Id == id);
         }
     }
 }

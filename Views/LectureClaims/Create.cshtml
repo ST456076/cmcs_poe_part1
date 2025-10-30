@@ -1,18 +1,38 @@
-﻿@model cmcs_poe_part1.Models.Claim
+﻿@model cmcs_poe_part1.Models.LectureClaims
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<div class="dashboard">
+    <h1>Welcome to XolozyClaims</h1>
+    <!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <h1> XolozyClaims</h1>
 
-<h4>Claim</h4>
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("Dashboard", "Home")">About</a>
+        <a class="btn" href="@Url.Action("Claims", "Home")">Claims</a>
+        <a class="btn" href="@Url.Action("trackclaims", "Home")">Track Claims</a>
+        <a class="btn" href="@Url.Action("ClaimReport", "Home")">Pre-approval</a>
+        <a class="btn" href="@Url.Action("finalClaimApproval", "Home")">Approval</a>
+    </div>
+</div>
+
+
+<h1>Create Claim</h1>
+
+<p> Before submitting a new claim, please make sure that all details you provide are accurate and complete.</p>
+<p> Enter your full name, faculty, and role correctly, and ensure that the date and claim amount are valid.</p>
+<p> Incomplete or incorrect claims may delay processing.</p>
+<p>Please remember that all claims will first be reviewed by your Program Coordinator for pre-approval, after which they will be formally approved or rejected by your Program Manager.</p>
+<p> Providing accurate information will help your claim move smoothly through the approval process.</p>
+
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="container">
+    <div class="form-box">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="NameSurname" class="control-label"></label>
                 <input asp-for="NameSurname" class="form-control" />
@@ -22,11 +42,6 @@
                 <label asp-for="Faculty" class="control-label"></label>
                 <input asp-for="Faculty" class="form-control" />
                 <span asp-validation-for="Faculty" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
-                <span asp-validation-for="Role" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
@@ -60,11 +75,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
+                <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
