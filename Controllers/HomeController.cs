@@ -73,6 +73,56 @@ namespace cmcs_poe_part1.Controllers
             return View();
         }
 
+        public ActionResult LecturerDashboard()
+        {
+            if (HttpContext.Session.GetString("UserRole") != "Lecturer")
+                return RedirectToAction("Index");
+            return View();
+        }
+
+        public ActionResult CoordinatorDashboard()
+        {
+            if (HttpContext.Session.GetString("UserRole") != "Program Coordinator")
+                return RedirectToAction("Index");
+            return View();
+        }
+
+        public ActionResult ManagerDashboard()
+        {
+            if (HttpContext.Session.GetString("UserRole") != "Program Manager")
+                return RedirectToAction("Index");
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(string email, string password, string role)
+        {
+            // For now we assume login is valid.
+            // Later you can check DB for real users.
+            bool isValid = true;
+            if (!isValid)
+            {
+                TempData["ErrorMessage"] = "Invalid login credentials";
+                return RedirectToAction("Index");
+            }
+
+            // Save user session
+            HttpContext.Session.SetString("UserEmail", email);
+            HttpContext.Session.SetString("UserRole", role);
+
+            // Redirect based on role
+            if (role == "Lecturer")
+                return RedirectToAction("LecturerDashboard");
+            if (role == "Program Coordinator")
+                return RedirectToAction("CoordinatorDashboard");
+            if (role == "Program Manager")
+                return RedirectToAction("ManagerDashboard");
+            // fallback
+            return RedirectToAction("Index");
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

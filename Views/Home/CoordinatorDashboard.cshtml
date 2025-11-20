@@ -1,0 +1,25 @@
+﻿
+<div class="dashboard">
+    <h1>Coordinator Dashboard</h1>
+
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("CoordinatorDashboard", "Home")">Dashboard</a>
+    </div>
+</div>
+
+<div class="claims-container">
+    <div class="claim-card">
+        <h3>Program Coordinator</h3>
+        <p> 
+            Evaluate and validate (pre-approve) submitted claims to ensure accuracy,
+            completeness, and compliance with institutional policies before final approval.
+            This step helps reduce errors and ensures that only legitimate claims move
+            forward in the process.
+        </p>
+
+        <p>
+            <a class="btn-add-claim" href="@Url.Action("ClaimReport", "Home")">Pre-Approve Claims</a>
+        </p>
+    </div>
+</div>

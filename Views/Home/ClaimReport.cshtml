@@ -1,39 +1,51 @@
-﻿<tbody>
-    @if (Model != null && Model.Any())
-    {
-        foreach (var claim in Model)
-        {
-            <tr>
-                <td>@claim.LecturerName</td>
-                <td>@claim.HoursWorked</td>
-                <td>@claim.HourlyRate</td>
-                <td>@claim.Total</td>
-                <td>@claim.Status</td>
-                <td>
-                    <form asp-action="Approve" asp-route-id="@claim.Id" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-success">Approve</button>
-                    </form>
-                    <form asp-action="Reject" asp-route-id="@claim.Id" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-danger">Reject</button>
-                    </form>
-                </td>
-            </tr>
-        }
+﻿@model IEnumerable<PreApproveClaim>
 
-        <!-- closing foreach -->
-    }
-  <!-- closing if -->
-    else
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Faculty</th>
+            <th>Date</th>
+            <th>Hours</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+    if (item != null)
     {
-    <tr>
-        <td colspan="6">No claims found.</td>
-    </tr>
+                <tr>
+                    <td>@item.NameSurname</td>
+                    <td>@item.Faculty</td>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@item.HoursWorked</td>
+                    <td>
+                        @if (item.Status == "Pending")
+                        {
+                            <span class="btn btn-primary btn-sm">Pending</span>
+                        }
+                        else if (item.Status == "Pre-Approved")
+                        {
+                            <span class="btn btn-success btn-sm">Pre-Approved</span>
+                        }
+                        else if (item.Status == "Declined")
+                        {
+                            <span class="btn btn-danger btn-sm">Declined</span>
+                        }
+                    </td>
+                    <td>
+                        @if (User.IsInRole("ProgramCoordinator") && item.Status == "Pending")
+                        {
+                            <form method="post" asp-action="PreApprove" asp-route-id="@item.Id" style="display:inline">
+                                <button class="btn btn-success btn-sm">Pre-Approve</button>
+                            </form>
+                            <form method="post" asp-action="Decline" asp-route-id="@item.Id" style="display:inline">
+                                <button class="btn btn-danger btn-sm">Decline</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
     }
-    else if {
-    <p>
-
-        <a class="btn-add-claim" href="@Url.Action("trackclaims", "Home")">Pre-approve</a>
-    </p>
-   
-    }
-</tbody>
+}

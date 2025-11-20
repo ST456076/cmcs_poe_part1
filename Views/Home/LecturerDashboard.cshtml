@@ -1,0 +1,39 @@
+﻿
+<div class="dashboard">
+    <h1>Lecturer Dashboard</h1>
+	<!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("LecturerDashboard", "Home")">Dashboard</a>
+        <a class="btn" href="@Url.Action("trackclaims", "Home")">Track Claims</a>
+    </div>
+</div>
+
+
+
+<h4 style="text-align:center">
+    Welcome to Xolozy Claims! We're glad to welcome you here.
+    This tool is intended to make submitting, managing, and tracking monthly claims as
+    easy and efficient as possible.
+    XolozyClaims makes it easy to submit a new claim,
+    review your claim history,
+    and check the status of existing claims.
+    Our goal is to save you time, reduce paperwork,
+    and handle your claims efficiently and accurately.
+    Enjoy a smooth experience while managing your claims with ease and confidence.
+</h4>
+
+<h4>please be informed that your claims will be first viewed by program coordinator for pre-approval and then i will be formally approved/rejected by your program manager </h4>
+
+
+<div class="claims-container">
+    <div class="claim-card">
+        <h3>Submit a New Claim</h3>
+        <p>Please fill all requirements correctly and according to terms and conditions.</p>
+		<p>You will be able to track and summarize once you have more claims.</p>
+
+        <p>
+            <a class="btn-add-claim" href="@Url.Action("Create", "LectureClaims")">Add New Claim</a>
+        </p>
+    </div>
+</div>

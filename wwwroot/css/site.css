@@ -1,31 +1,32 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
- /* === BODY === */ 
- body {
+
+/* === BODY === */
+body {
     margin: 0;
-    font-family: Arial; 
+    font-family: Arial;
     background-color: lightgoldenrodyellow;
     color: #333;
     min-height: 100vh;
 }
-/* === DASHBOARD === */
 
+/* === DASHBOARD === */
 .dashboard {
     border-style: double;
     border-color: pink;
@@ -42,8 +43,8 @@ html {
         font-size: 26px;
         font-weight: 600;
     }
-/* === NAV BUTTONS === */
 
+/* === NAV BUTTONS === */
 .nav-buttons {
     margin-top: 10px;
 }
@@ -62,8 +63,8 @@ html {
         .nav-buttons a:hover, .nav-buttons a.active {
             background-color: #003f73;
         }
-/* === GENERAL BUTTONS === */
 
+/* === GENERAL BUTTONS === */
 .btn, button {
     background-color: #007acc;
     color: white;
@@ -78,8 +79,8 @@ html {
     .btn:hover, button:hover {
         background-color: #005fa3;
     }
-/* === TABLE === */
 
+/* === TABLE === */
 .table {
     border-collapse: collapse;
     width: 95%;
@@ -105,8 +106,8 @@ th {
 tr:hover {
     background-color: #f1f9ff;
 }
-/* === VIEW BUTTON IN TABLE === */
 
+/* === VIEW BUTTON IN TABLE === */
 .view {
     background-color: #4CAF50;
     padding: 5px 10px;
@@ -118,8 +119,8 @@ tr:hover {
     .view:hover {
         background-color: #45a049;
     }
-/* === FORM CONTAINER === */
 
+/* === FORM CONTAINER === */
 .container {
     display: flex;
     justify-content: center;
@@ -134,8 +135,8 @@ tr:hover {
     width: 450px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-/* === FORM ELEMENTS === */
 
+/* === FORM ELEMENTS === */
 label {
     display: block;
     margin-top: 15px;
@@ -150,8 +151,8 @@ input, select {
     border: 1px solid #ccc;
     font-size: 15px;
 }
-/* === CLAIM CARDS === */
 
+/* === CLAIM CARDS === */
 .claims-container {
     display: flex;
     justify-content: center;
@@ -171,8 +172,8 @@ input, select {
     .claim-card h3 {
         color: #007acc;
     }
-/* === ADD NEW CLAIM BUTTON === */
 
+/* === ADD NEW CLAIM BUTTON === */
 .btn-add-claim {
     display: inline-block;
     padding: 10px 20px;
@@ -186,6 +187,7 @@ input, select {
     .btn-add-claim:hover {
         background-color: #357ab7;
     }
+
 .index-image {
     position: absolute;
     top: 0;
@@ -200,8 +202,8 @@ input, select {
         height: 100%;
         object-fit: cover; /* scale image to cover full screen */
     }
-/* === FOOTER === */
 
+/* === FOOTER === */
 footer {
     text-align: center;
     padding: 15px;
@@ -210,6 +212,3 @@ footer {
     background-color: #eaf3fb;
     margin-top: 40px;
 }
-
-
-

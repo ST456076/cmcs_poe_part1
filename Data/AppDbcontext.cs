@@ -14,5 +14,9 @@ namespace cmcs_poe_part1.Data
         public DbSet<Claim> Claims { get; set; }
         public DbSet<LectureClaims> LectureClaims { get; set; }
         public DbSet<RegisterViewModel> Users { get; set; }
+
+        public DbSet<PreApproveClaim> PreApproveClaims { get; set; }
+
+        public DbSet<Submission> Submissions { get; set; } 
     }
 }

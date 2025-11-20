@@ -8,19 +8,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="dashboard">
-    <h1>Welcome to XolozyClaims</h1>
+    <h1>Lecturer </h1>
     <!-- Navigation buttons inside header -->
     <div class="nav-buttons">
-
-        <h1> XolozyClaims</h1>
-        <a class="btn" href="@Url.Action("Index","Home")">Home</a>
-        <a class="btn" href="@Url.Action("Dashboard","Home")">About</a>
-        <a class="btn" href="@Url.Action("Claims","Home")">Claims</a>
-        <a class="btn" href="@Url.Action("trackclaims","Home")">Track Claims</a>
-        <a class="btn" href="@Url.Action("ClaimReport","Home")">Pre-approval</a>
-        <a class="btn" href="@Url.Action("finalClaimApproval","Home")">Approval</a>
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("LecturerDashboard", "Home")">Dashboard</a>
+        <a class="btn" href="@Url.Action("trackclaims", "Home")">Track Claims</a>
     </div>
-</div>
+</div> 
 
 
 <h1>Track Claim</h1>
@@ -72,4 +67,4 @@
             </tr>
         }
     </tbody>
-</table>
+ </table>

@@ -3,6 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="dashboard">
+    <h1>Lecturer Dashboard</h1>
+    <!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("LecturerDashboard", "Home")">Dashboard</a>
+        <a class="btn" href="@Url.Action("trackclaims", "Home")">Track Claims</a>
+    </div>
+</div>
 
 <h1>Index</h1>
 
@@ -78,6 +91,8 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+
+  
+        }
     </tbody>
 </table>

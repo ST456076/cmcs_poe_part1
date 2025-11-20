@@ -1,0 +1,26 @@
+﻿<div class="dashboard">
+    <h1>Manager Dashboard</h1>
+
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("ManagerDashboard", "Home")">Dashboard</a>
+    </div>
+</div>
+
+<div class="claims-container">
+    <div class="claim-card">
+        <h3>Program Manager</h3>
+       
+        <p>
+            Finalize the claims process by carefully reviewing all pre-approved submissions.
+            As a Program Manager, you are responsible for granting the final approval or
+            rejecting claims based on compliance, accuracy, and budget considerations.
+            This step ensures accountability and maintains the integrity of the claims system.
+        </p>
+   
+
+        <p>
+            <a class="btn-add-claim" href="@Url.Action("finalClaimApproval", "Home")">Approve Claims</a>
+    </div>
+</div>
+

@@ -22,7 +22,8 @@
 
         <h1 style="color: lightseagreen">Login or create a new account</h1>
 
-        <form method="post" action="/Home/Dashboard">
+        <form method="post" action="/Home/Login">
+
             <div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required />
@@ -33,14 +34,15 @@
                 <input type="password" id="password" name="password" required />
             </div>
             <div>
-                <select >
-                    <option>Please provide a role</option>
-                    <option>Lecturer</option>
-                    <option>Program codinator </option>
-                    <option>Program manager</option>
+                <label for="role">Select Role:</label>
+                <select id="role" name="role" required>
+                    <option value="">Please provide a role</option>
+                    <option value="Lecturer">Lecturer</option>
+                    <option value="Program Coordinator">Program Coordinator</option>
+                    <option value="Program Manager">Program Manager</option>
                 </select>
-
             </div>
+
             <button type="submit">Login</button>
         </form>
 
