@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "HR Dashboard";
+}
+@model dynamic
+
+<h1>HR Dashboard</h1>
+
+<h2>Claims</h2>
+<ul>
+    @foreach (var claim in Model.Claims)
+    {
+        <li>@claim.Id - @claim.Status</li>
+    }
+</ul>
+
+<h2>Lecturers</h2>
+<ul>
+    @foreach (var lecturer in Model.Lecturers)
+    {
+        <li>@lecturer.Name - @lecturer.Faculty</li>
+    }
+</ul>

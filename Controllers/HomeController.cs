@@ -73,8 +73,10 @@ namespace cmcs_poe_part1.Controllers
         }
         public IActionResult finalClaimApproval()
         {
-            return View();
+            var claims = _context.Claims.ToList();
+            return View(claims);
         }
+
 
         public ActionResult LecturerDashboard()
         {

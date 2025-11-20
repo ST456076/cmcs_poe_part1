@@ -1,68 +1,33 @@
 ﻿@model IEnumerable<cmcs_poe_part1.Models.LectureClaims>
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+<h2>Programme Coordinator – Claim Review</h2>
 
-<table class="table table-striped">
-    <thead>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Hours</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var claim in Model)
+    {
         <tr>
-            <th>Name</th>
-            <th>Faculty</th>
-            <th>Date</th>
-            <th>Hours</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <td>@claim.NameSurname</td>
+            <td>@claim.HoursWorked</td>
+            <td>@claim.Status</td>
+            <td>
+                <form asp-controller="PreApproveClaim" asp-action="PreApprove" method="post" style="display:inline-block;">
+                    <input type="hidden" name="id" value="@claim.Id" />
+                    <button class="btn btn-warning btn-sm">Pre-Approve</button>
+                </form>
+                <form asp-controller="PreApproveClaim" asp-action="Decline" method="post" style="display:inline-block;">
+                    <input type="hidden" name="id" value="@claim.Id" />
+                    <button class="btn btn-danger btn-sm">Decline</button>
+                </form>
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        @if (Model.Any())
-        {
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@(item.NameSurname ?? "N/A")</td>
-                    <td>@(item.Faculty ?? "N/A")</td>
-                    <td>@item.Date.ToShortDateString()</td>
-                    <td>@item.HoursWorked</td>
-                    <td>
-                        @if (item.Status?.Trim() == "Pending")
-                        {
-                            <span class="btn btn-primary btn-sm">Pending</span>
-                        }
-                        else if (item.Status?.Trim() == "Pre-Approved")
-                        {
-                            <span class="btn btn-success btn-sm">Pre-Approved</span>
-                        }
-                        else if (item.Status?.Trim() == "Declined")
-                        {
-                            <span class="btn btn-danger btn-sm">Declined</span>
-                        }
-                        else
-                        {
-                            <span class="btn btn-secondary btn-sm">Unknown</span>
-                        }
-                    </td>
-                    <td>
-                        @if (User.IsInRole("ProgramCoordinator") && item.Status?.Trim() == "Pending")
-                        {
-                            <form method="post" asp-action="PreApprove" asp-route-id="@item.Id" style="display:inline">
-                                <button class="btn btn-success btn-sm">Pre-Approve</button>
-                            </form>
-                            <form method="post" asp-action="Decline" asp-route-id="@item.Id" style="display:inline">
-                                <button class="btn btn-danger btn-sm">Decline</button>
-                            </form>
-                        }
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="6">No claims to display.</td>
-            </tr>
-        }
-    </tbody>
+    }
 </table>
+
 

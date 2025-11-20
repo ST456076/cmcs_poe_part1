@@ -1,0 +1,24 @@
+﻿using cmcs_poe_part1.Models;
+@model IEnumerable<cmcs_poe_part1.Models.LectureClaims>
+
+<h2>Approved Claims Report</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model.Where(c => c.Status == ClaimStatus.Approved))
+        {
+            <tr>
+                <td>@claim.NameSurname</td>
+                <td>@claim.Date.ToShortDateString()</td>
+                <td>R @claim.Amount</td>
+            </tr>
+        }
+    </tbody>
+</table>
