@@ -47,11 +47,12 @@ namespace cmcs_poe_part1.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult trackclaims()
+        public IActionResult TrackClaims()
         {
             var claims = _context.Claims.ToList();
             return View(claims);
         }
+
         [HttpPost]
         public IActionResult trackclaims(Claim claim, IFormFile documents)
         {
@@ -65,8 +66,8 @@ namespace cmcs_poe_part1.Controllers
             }
 
             _context.Claims.Add(claim);
-           
-            return RedirectToAction("TrackClaims");
+           _context.SaveChanges();
+            return RedirectToAction("TrackClaims", "Home");
         }
         public IActionResult finalClaimApproval()
         {

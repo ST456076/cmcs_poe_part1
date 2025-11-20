@@ -12,6 +12,7 @@
         public int Id { get; set; }
         public string NameSurname { get; set; }
         public string Faculty { get; set; }
+
         public string Role { get; set; }
         public DateTime Date { get; set; }
         public int HoursWorked { get; set; }

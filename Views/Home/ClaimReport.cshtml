@@ -11,41 +11,52 @@
             <th>Actions</th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model)
-{
-    if (item != null)
-    {
+        @foreach (var item in Model ?? new List<PreApproveClaim>())
+        {
+            if (item != null)
+            {
                 <tr>
-                    <td>@item.NameSurname</td>
-                    <td>@item.Faculty</td>
-                    <td>@item.Date.ToShortDateString()</td>
+                    <td>@(item.NameSurname ?? "N/A")</td>
+                    <td>@(item.Faculty ?? "N/A")</td>
+                    <td>@(item.Date.ToShortDateString() ?? "N/A")</td>
                     <td>@item.HoursWorked</td>
+
                     <td>
-                        @if (item.Status == "Pending")
+                        @if (item.Status?.Trim() == "Pending")
                         {
                             <span class="btn btn-primary btn-sm">Pending</span>
                         }
-                        else if (item.Status == "Pre-Approved")
+                        else if (item.Status?.Trim() == "Pre-Approved")
                         {
                             <span class="btn btn-success btn-sm">Pre-Approved</span>
                         }
-                        else if (item.Status == "Declined")
+                        else if (item.Status?.Trim() == "Declined")
                         {
                             <span class="btn btn-danger btn-sm">Declined</span>
                         }
+                        else
+                        {
+                            <span class="btn btn-secondary btn-sm">Unknown</span>
+                        }
                     </td>
+
                     <td>
-                        @if (User.IsInRole("ProgramCoordinator") && item.Status == "Pending")
+                        @if (User.IsInRole("ProgramCoordinator") && item.Status?.Trim() == "Pending")
                         {
                             <form method="post" asp-action="PreApprove" asp-route-id="@item.Id" style="display:inline">
                                 <button class="btn btn-success btn-sm">Pre-Approve</button>
                             </form>
+
                             <form method="post" asp-action="Decline" asp-route-id="@item.Id" style="display:inline">
                                 <button class="btn btn-danger btn-sm">Decline</button>
                             </form>
                         }
                     </td>
                 </tr>
-    }
-}
+            }
+        }
+    </tbody>
+</table>
+
