@@ -45,7 +45,7 @@ namespace cmcs_poe_part1.Controllers
         public IActionResult Create()
         {
             return View();
-        }
+         }
 
         // GET: Claims/Create
         [HttpPost]

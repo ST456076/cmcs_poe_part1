@@ -1,6 +1,10 @@
-﻿@model IEnumerable<PreApproveClaim>
+﻿@model IEnumerable<cmcs_poe_part1.Models.LectureClaims>
 
-<table class="table">
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Name</th>
@@ -11,18 +15,16 @@
             <th>Actions</th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach (var item in Model ?? new List<PreApproveClaim>())
+        @if (Model.Any())
         {
-            if (item != null)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@(item.NameSurname ?? "N/A")</td>
                     <td>@(item.Faculty ?? "N/A")</td>
-                    <td>@(item.Date.ToShortDateString() ?? "N/A")</td>
+                    <td>@item.Date.ToShortDateString()</td>
                     <td>@item.HoursWorked</td>
-
                     <td>
                         @if (item.Status?.Trim() == "Pending")
                         {
@@ -41,14 +43,12 @@
                             <span class="btn btn-secondary btn-sm">Unknown</span>
                         }
                     </td>
-
                     <td>
                         @if (User.IsInRole("ProgramCoordinator") && item.Status?.Trim() == "Pending")
                         {
                             <form method="post" asp-action="PreApprove" asp-route-id="@item.Id" style="display:inline">
                                 <button class="btn btn-success btn-sm">Pre-Approve</button>
                             </form>
-
                             <form method="post" asp-action="Decline" asp-route-id="@item.Id" style="display:inline">
                                 <button class="btn btn-danger btn-sm">Decline</button>
                             </form>
@@ -56,6 +56,12 @@
                     </td>
                 </tr>
             }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">No claims to display.</td>
+            </tr>
         }
     </tbody>
 </table>

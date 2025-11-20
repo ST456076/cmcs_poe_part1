@@ -44,8 +44,10 @@ namespace cmcs_poe_part1.Controllers
         }
         public IActionResult ClaimReport()
         {
-            return View();
+            var claims = _context.LectureClaims.ToList();  // Get data from DB
+            return View(claims);
         }
+
         [HttpGet]
         public IActionResult TrackClaims()
         {
