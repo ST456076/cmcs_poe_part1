@@ -24,7 +24,7 @@ namespace cmcs_poe_part1.Services
             var invoice = new Invoice
             {
                 ClaimId = claim.Id,
-                ClaimAmount = claimAmount,
+                Amount = claimAmount,
                 // Other invoice properties
             };
 

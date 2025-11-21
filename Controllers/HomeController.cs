@@ -51,7 +51,7 @@ namespace cmcs_poe_part1.Controllers
         [HttpGet]
         public IActionResult TrackClaims()
         {
-            var claims = _context.Claims.ToList();
+            var claims = _context.LectureClaims.ToList();
             return View(claims);
         }
 
@@ -98,6 +98,12 @@ namespace cmcs_poe_part1.Controllers
                 return RedirectToAction("Index");
             return View();
         }
+        public ActionResult HRDashboard()
+        {
+            if (HttpContext.Session.GetString("UserRole") != "HR")
+                return RedirectToAction("Index");
+            return View();
+        }
 
 
         [HttpPost]
@@ -123,6 +129,9 @@ namespace cmcs_poe_part1.Controllers
                 return RedirectToAction("CoordinatorDashboard");
             if (role == "Program Manager")
                 return RedirectToAction("ManagerDashboard");
+            // fallback
+            if (role == "HR")
+                return RedirectToAction("HRDashboard");
             // fallback
             return RedirectToAction("Index");
         }

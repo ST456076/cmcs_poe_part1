@@ -18,6 +18,6 @@ namespace cmcs_poe_part1.Data
         public DbSet<PreApproveClaim> PreApproveClaims { get; set; }
 
         public DbSet<Submission> Submissions { get; set; }
-        public object Lecturers { get; internal set; }
+      
     }
 }

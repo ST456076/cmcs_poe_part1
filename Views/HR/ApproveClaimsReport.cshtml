@@ -15,7 +15,7 @@
         @foreach (var claim in Model.Where(c => c.Status == ClaimStatus.Approved))
         {
             <tr>
-                <td>@claim.NameSurname</td>
+                <td>@claim.Name</td>
                 <td>@claim.Date.ToShortDateString()</td>
                 <td>R @claim.Amount</td>
             </tr>

@@ -4,7 +4,7 @@ namespace cmcs_poe_part1.Services
 {
     public class ClaimVerificationService
     {
-        public async Task<bool> VerifyClaim( claim)
+        public async Task<bool> VerifyClaim(Claim claim)
         {
             // Check hours worked
             if (claim.HoursWorked > 40)

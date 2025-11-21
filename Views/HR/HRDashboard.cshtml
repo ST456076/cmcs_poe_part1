@@ -3,8 +3,16 @@
 }
 @model dynamic
 
-<h1>HR Dashboard</h1>
 
+<div class="dashboard">
+    <h1>HR Dashboard</h1>    <!-- Navigation buttons inside header -->
+    <div class="nav-buttons">
+        <a class="btn" href="@Url.Action("Index", "Home")">Home</a>
+        <a class="btn" href="@Url.Action("LecturerDashboard", "Home")">Dashboard</a>
+        <a class="btn" href="@Url.Action("trackclaims", "Home")">Track Claims</a>
+    </div>
+</div>
+<h1>Welcome to the HR Dashboard</h1>
 <h2>Claims</h2>
 <ul>
     @foreach (var claim in Model.Claims)
